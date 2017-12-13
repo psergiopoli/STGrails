@@ -1,7 +1,7 @@
 grails.plugin.springsecurity.filterChain.chainMap = [
         //Stateless chain
         [
-                pattern: '/**',
+                pattern: '/api/**',
                 filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
         ],
 
@@ -30,11 +30,27 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/favicon.ico', access: ['permitAll']]
 ]
 
-grails.plugin.springsecurity.filterChain.chainMap = [
-	[pattern: '/assets/**',      filters: 'none'],
-	[pattern: '/**/js/**',       filters: 'none'],
-	[pattern: '/**/css/**',      filters: 'none'],
-	[pattern: '/**/images/**',   filters: 'none'],
-	[pattern: '/**/favicon.ico', filters: 'none'],
-	[pattern: '/**',             filters: 'JOINED_FILTERS']
-]
+grails.plugin.springsecurity.rest.login.active = true
+grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
+
+//grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
+//grails.plugin.springsecurity.rest.token.validation.headerName = 'token'
+
+
+//if bearer enable>>
+//Header Authorization
+//Token  = Bearer <<token>>
+
+//compile "org.grails.plugins:spring-security-rest-memcached:2.0.0.M2"
+
+/* MEMCACHED params
+grails.plugin.springsecurity.rest.token.storage.useGrailsCache = true
+grails.plugin.springsecurity.rest.token.storage.grailsCacheName = 'restapitoken'
+grails.plugin.springsecurity.rest.login.active = true
+grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
+grails.plugin.springsecurity.rest.login.failureStatusCode = 401
+grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
+grails.plugin.springsecurity.rest.token.validation.headerName = 'X-Auth-Token'
+grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
+grails.plugin.springsecurity.rest.token.validation.enableAnonymousAccess =true
+*/

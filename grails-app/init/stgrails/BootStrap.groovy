@@ -1,6 +1,7 @@
 package stgrails
 
 import com.stg.*
+import br.com.stgenerator.util.*
 
 class BootStrap {
 

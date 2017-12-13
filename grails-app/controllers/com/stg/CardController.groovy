@@ -1,9 +1,10 @@
 package com.stg
 
-
 import grails.rest.*
 import grails.converters.*
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['permitAll'])
 class CardController extends RestfulController {
     static responseFormats = ['json', 'xml']
     CardController() {
